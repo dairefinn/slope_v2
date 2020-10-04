@@ -22,9 +22,16 @@ include("main/keybinds.lua")
 
 
 GM.RoundStartTime = 0
-GM.playermodel = GetRandomPlayerModel()
+GM.playermodel = Model("models/player/leet.mdl")
 
 function GM:Initialize()
     PrintInfo("==================================================")
     PrintInfo("gamemode server initializing...")
+end
+
+function StartRound()
+    for i, pl in pairs(player.GetAll()) do
+        victim:SetTeam(TEAM_PLAYER)
+        victim:Flashlight(false)
+    end
 end

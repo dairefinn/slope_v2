@@ -20,6 +20,10 @@ function GM:PlayerSpawn(player)
 	player.spawn_nick = player:Nick()
 	player.has_spawned = true
 
+	if player:IsUnassigned() then
+		player:SetTeam(TEAM_PLAYER)
+	end
+
 	-- Handle spectators
 	if player:IsSpec() then
 		player:StripAll()

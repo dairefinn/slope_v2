@@ -13,19 +13,18 @@ TEAM_PLAYER = 1
 TEAM_SPECTATOR = 1002
 TEAM_UNASSIGNED = 1001
 TEAM_JOINING = 0
-TEAM_PLAYER = 1
 
-local default_playermodels = {
-    Model("models/player/phoenix.mdl"),
-    Model("models/player/arctic.mdl"),
-    Model("models/player/guerilla.mdl"),
-    Model("models/player/leet.mdl")
- };
+-- local default_playermodels = {
+--     Model("models/player/phoenix.mdl"),
+--     Model("models/player/arctic.mdl"),
+--     Model("models/player/guerilla.mdl"),
+--     Model("models/player/leet.mdl")
+--  };
 
- -- Returns a random player model
- function GetRandomPlayerModel()
-    return table.Random(default_playermodels);
- end
+--  -- Returns a random player model
+--  function GetRandomPlayerModel()
+--     return table.Random(default_playermodels);
+--  end
 
 
 -- Create teams
@@ -37,6 +36,4 @@ function GM:CreateTeams()
     -- Not that we use this, but feels good
     team.SetSpawnPoint(TEAM_PLAYER, "info_player_deathmatch")
     team.SetSpawnPoint(TEAM_SPECTATOR, {})
-
-    PrintTable(team.GetAllTeams(), 0)
 end
