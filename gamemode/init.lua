@@ -4,18 +4,27 @@
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared/shared.lua")
 AddCSLuaFile("helpers/logging.lua")
+AddCSLuaFile("main/sounds.lua")
+AddCSLuaFile("entities/player.lua")
+AddCSLuaFile("vgui/scoreboard/scoreboard.lua")
+AddCSLuaFile("shared/corpse_shared.lua")
 
--- Imports for server usage
-include("shared/shared.lua")
+include("cl_init.lua")
 
-include("helpers/logging.lua")
-
+-- Server only imports
+include("entities/corpse.lua")
+include("entities/player.lua")
+include("entities/player_ext.lua")
+include("helpers/util.lua")
 include("main/convars.lua")
 include("main/hooks.lua")
-include("main/player.lua")
+include("main/keybinds.lua")
+
+
+GM.RoundStartTime = 0
+GM.playermodel = GetRandomPlayerModel()
 
 function GM:Initialize()
     PrintInfo("==================================================")
     PrintInfo("gamemode server initializing...")
-    InitHooks();
 end
